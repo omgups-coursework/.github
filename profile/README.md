@@ -1,6 +1,6 @@
 <p align="center">
     <img
-        src="./logo.jpg"
+        src="https://github.com/omgups-coursework/.github/blob/main/profile/logo.jpg"
         width="200"
         alt="GreenAPI Logo"
         style="border-radius: 200px"
@@ -18,4 +18,4 @@
 
 ## Схема сервиса
 
-![img_1.png](./service_schema.png)
+![img_1.png](https://github.com/omgups-coursework/.github/blob/main/profile/service_schema.png)
