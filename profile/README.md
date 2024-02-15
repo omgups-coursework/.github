@@ -1,6 +1,6 @@
 <p align="center">
     <img
-        src="logo.jpg"
+        src="./logo.jpg"
         width="200"
         alt="GreenAPI Logo"
         style="border-radius: 200px"
@@ -18,4 +18,4 @@
 
 ## Схема сервиса
 
-![img_1.png](service_schema.png)
+![img_1.png](./service_schema.png)
