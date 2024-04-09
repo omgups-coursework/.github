@@ -1,0 +1,971 @@
+{
+	"info": {
+		"_postman_id": "9f07ce10-1011-4eff-affd-82b26867de20",
+		"name": "core",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10640061"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"{{login}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"email\": \"{{email}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/signUp",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"{{login}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/signIn",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"signIn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "revoke",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sessionId\": \"{{sessionId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/revoke",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "revokeFamily",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/revokeFamily",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"revokeFamily"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/check",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "workflows",
+			"item": [
+				{
+					"name": "transitions",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"s2s\",\r\n    \"from\": \"open\",\r\n    \"to\": \"*\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/workflows/default/transitions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"transitions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/transitions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"transitions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/transitions/{{transition_id}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"transitions",
+										"{{transition_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"s2s\",\r\n    \"from\": \"open\",\r\n    \"to\": \"*\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/workflows/default/transitions/{{transition_id}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"transitions",
+										"{{transition_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/transitions/{{transition_id}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"transitions",
+										"{{transition_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "resolutions",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"solved\",\r\n    \"display\": \"решен\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/workflows/default/resolutions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"resolutions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/resolutions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"resolutions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/resolutions/{{transition_id_or_key}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"resolutions",
+										"{{transition_id_or_key}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"display\": \"решен\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/workflows/default/resolutions/{{transition_id_or_key}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"resolutions",
+										"{{transition_id_or_key}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/transitions/{{transition_id_or_key}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"transitions",
+										"{{transition_id_or_key}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "statuses",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"open\",\r\n    \"display\": \"открыт\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/workflows/default/statuses",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"statuses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/statuses",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"statuses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/statuses/{{status_id_or_key}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"statuses",
+										"{{status_id_or_key}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"display\": \"решен\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/workflows/default/statuses/{{status_id_or_key}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"statuses",
+										"{{status_id_or_key}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/workflows/default/statuses/{{status_id_or_key}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"workflows",
+										"default",
+										"statuses",
+										"{{status_id_or_key}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"default\",\r\n    \"display\": \"системная\",\r\n    \"entryStatus\": \"open\",\r\n    \"resolutions\": [\r\n        {\r\n            \"key\": \"solved\",\r\n            \"display\": \"решен\"\r\n        },\r\n        {\r\n            \"key\": \"closed\",\r\n            \"display\": \"закрыт\"\r\n        }\r\n    ],\r\n    \"statuses\": [\r\n        {\r\n            \"key\": \"open\",\r\n            \"display\": \"открыт\"\r\n        },\r\n        {\r\n            \"key\": \"work_in_progress\",\r\n            \"display\": \"в работе\"\r\n        },\r\n        {\r\n            \"key\": \"solve\",\r\n            \"display\": \"решить\"\r\n        },\r\n        {\r\n            \"key\": \"close\",\r\n            \"display\": \"закрыть\"\r\n        }\r\n    ],\r\n    \"transitions\": [\r\n        {\r\n            \"type\": 0,\r\n            \"from\": \"open\",\r\n            \"to\": \"*\"\r\n        },\r\n        {\r\n            \"type\": 0,\r\n            \"from\": \"*\",\r\n            \"to\": \"close\"\r\n        },\r\n        {\r\n            \"type\": 0,\r\n            \"from\": \"*\",\r\n            \"to\": \"solve\"\r\n        },\r\n        {\r\n            \"type\": 1,\r\n            \"from\": \"solve\",\r\n            \"to\": \"solved\"\r\n        },\r\n        {\r\n            \"type\": 1,\r\n            \"from\": \"close\",\r\n            \"to\": \"closed\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/workflows",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"workflows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"populate\": [\"transitions\", \"statuses\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/workflows/{{workflow_key}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"workflows",
+								"{{workflow_key}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limit\": 2,\r\n    \"offset\": 0,\r\n    \"populate\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/workflows/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"workflows",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"display\": \"базовый\",\r\n    \"entryStatus\": \"work_in_progress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/workflows/{{workflow_key}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"workflows",
+								"{{workflow_key}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/workflows/{{workflow_key}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"workflows",
+								"{{workflow_key}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "queues",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"coursework\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/queues",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"queues"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tasks",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"summary\": \"Создание Postman коллекции\",\r\n    \"description\": \"Необходимо создать postman коллекцию для всех методов\",\r\n    \"taskQueue\": \"64cba8f4-f364-47df-95e8-622a393beca3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/tasks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
